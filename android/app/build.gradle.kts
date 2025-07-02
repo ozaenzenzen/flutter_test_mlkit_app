@@ -1,3 +1,7 @@
+import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import java.util.Date
+import java.text.SimpleDateFormat
+
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -32,6 +36,24 @@ android {
 
     buildTypes {
         release {
+             applicationVariants.all {
+                outputs.all { output ->
+                    if (output is BaseVariantOutputImpl) {
+                        val project = "Sample App MLKit"
+                        val separator = "_"
+                        val buildType = buildType.name
+                        val version = versionName
+                        val formattedDate = SimpleDateFormat("MM-dd-yyyy").format(Date())
+                        val filename =
+                            "$project$separator$version$separator$buildType$separator$formattedDate.apk"
+                        output.outputFileName = filename
+                    }
+                    true
+                }
+            }
+
+            isMinifyEnabled = false
+            isShrinkResources = false
             // TODO: Add your own signing config for the release build.
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig = signingConfigs.getByName("debug")
