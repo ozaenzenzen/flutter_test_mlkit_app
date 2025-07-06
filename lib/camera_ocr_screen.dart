@@ -51,7 +51,15 @@ class _CameraOCRScreenState extends State<CameraOCRScreen> {
                     height: 64,
                     alignment: Alignment.bottomCenter,
                     decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-                    child: Center(child: Container(margin: const EdgeInsets.all(6.81), decoration: BoxDecoration(shape: BoxShape.circle, border: Border.all(color: const Color(0xFF6F6F6F), width: 2)))),
+                    child: Center(
+                      child: Container(
+                        margin: const EdgeInsets.all(6.81),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: const Color(0xFF6F6F6F), width: 2),
+                        ),
+                      ),
+                    ),
                   ),
                   onControllerCreated: (controller) {
                     cameraController = controller;
@@ -101,7 +109,21 @@ class _CameraOCRScreenState extends State<CameraOCRScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [const SizedBox(height: 50, width: 50, child: CircularProgressIndicator()), const SizedBox(height: 20), Text('Proses Sedang Berlangsung', style: GoogleFonts.mukta(color: Colors.white, fontSize: 18))],
+                      children: [
+                        const SizedBox(
+                          height: 50,
+                          width: 50,
+                          child: CircularProgressIndicator(),
+                        ),
+                        const SizedBox(height: 20),
+                        Text(
+                          'Proses Sedang Berlangsung',
+                          style: GoogleFonts.mukta(
+                            color: Colors.white,
+                            fontSize: 18,
+                          ),
+                        )
+                      ],
                     ),
                   ),
               ],
