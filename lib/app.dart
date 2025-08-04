@@ -15,8 +15,8 @@ class _MyAppState extends State<MyApp> {
     return const MaterialApp(
       title: "Flutter Test Liveness",
       debugShowCheckedModeBanner: false,
-      home: HomeScreenClient(motionCount: 3),
-      // home: HomeScreen(motionCount: 3),
+      // home: HomeScreenClient(motionCount: 3),
+      home: HomeScreen(motionCount: 3),
     );
   }
 }

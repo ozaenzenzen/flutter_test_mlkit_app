@@ -9,6 +9,10 @@ import 'package:google_fonts/google_fonts.dart';
 // import 'package:mnc_identifier_ocr/mnc_identifier_ocr.dart';
 // import 'package:mnc_identifier_ocr/model/ocr_result_model.dart';
 import 'package:saas_mlkit/src/features/rnd/saas_ocr_camera_mlkit_ver.dart';
+import 'package:saas_mlkit/src/features/rnd/saas_ocr_camera_rnd1.dart';
+import 'package:saas_mlkit/src/features/rnd/saas_ocr_camera_rnd2.dart';
+import 'package:saas_mlkit/src/features/rnd/ocr/ktp_scanner_widget.dart';
+import 'package:saas_mlkit/src/features/rnd/ocr/simple_ktp_scanner_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   final int motionCount;
@@ -119,7 +123,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return const CameraOCRScreen(testMode: false);
+                              // return const SaasOcrCameraRND2();
+                              return const SaasOcrCameraRND1();
+                              // return const CameraOCRScreen(testMode: false);
                               // return const QoinSaasOCRCameraMLKitVer();
                               // return CameraScreenTest();
                               // return Test2Widget();
@@ -236,6 +242,33 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                       child: Text("Test Liveness (Face Recognition) Test Mode", style: GoogleFonts.mukta()),
+                    ),
+                    const SizedBox(width: 15),
+                    ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          dataGambar = null;
+                        });
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return SimpleKTPScanner();
+                              // return KTPScannerWidget();
+                              // return CameraLivenessScreen(
+                              //   testMode: true,
+                              //   callback: (String image) {
+                              //     setState(() {
+                              //       dataGambar = image;
+                              //     });
+                              //   },
+                              // );
+                              // return const TextRecognizerView();
+                            },
+                          ),
+                        );
+                      },
+                      child: Text("RND: KTP Scanner Widget", style: GoogleFonts.mukta()),
                     ),
                   ],
                 ),
